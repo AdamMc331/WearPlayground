@@ -14,3 +14,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Wear Playground"
 include(":app")
+include(":wear")
