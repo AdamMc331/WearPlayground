@@ -106,6 +106,10 @@ private fun tileLayout(
                                         ActionBuilders.AndroidActivity.Builder()
                                             .setPackageName("com.adammcneilly.wear.playground")
                                             .setClassName("com.adammcneilly.wear.playground.presentation.MainActivity")
+                                            .addKeyToExtraMapping(
+                                                "TILE_BUTTON",
+                                                ActionBuilders.stringExtra("1234"),
+                                            )
                                             .build()
                                     )
                                     .build()

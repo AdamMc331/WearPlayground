@@ -11,6 +11,7 @@ import androidx.activity.compose.setContent
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
@@ -35,13 +36,21 @@ class MainActivity : ComponentActivity() {
         setTheme(android.R.style.Theme_DeviceDefault)
 
         setContent {
-            WearApp("Android")
+            val extraText = intent?.extras?.getString("TILE_BUTTON")
+
+            println("ADAMLOG - EXTRAS: ${intent?.extras}")
+            println("ADAMLOG - EXTRA TEXT: $extraText")
+
+            WearApp("Android", extraText)
         }
     }
 }
 
 @Composable
-fun WearApp(greetingName: String) {
+fun WearApp(
+    greetingName: String,
+    extraText: String?,
+) {
     WearPlaygroundTheme {
         Box(
             modifier = Modifier
@@ -50,7 +59,13 @@ fun WearApp(greetingName: String) {
             contentAlignment = Alignment.Center
         ) {
             TimeText()
-            Greeting(greetingName = greetingName)
+            Column {
+                Greeting(greetingName = greetingName)
+
+                if (extraText != null) {
+                    Text(extraText)
+                }
+            }
         }
     }
 }
@@ -69,5 +84,5 @@ fun Greeting(greetingName: String) {
 @Preview(device = WearDevices.SQUARE, showSystemUi = true)
 @Composable
 fun DefaultPreview() {
-    WearApp("Preview Android")
+    WearApp("Preview Android", null)
 }
