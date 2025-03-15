@@ -123,6 +123,6 @@ private fun tileLayout(
 @Preview(device = WearDevices.SMALL_ROUND)
 @Preview(device = WearDevices.LARGE_ROUND)
 fun tilePreview(context: Context) =
-    TilePreviewData(::resources) {
+    TilePreviewData {
         tile(it, context)
     }
