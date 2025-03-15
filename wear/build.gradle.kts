@@ -39,26 +39,27 @@ android {
 }
 
 dependencies {
-
-    implementation(libs.play.services.wearable)
     implementation(platform(libs.compose.bom))
-    implementation(libs.compose.ui)
-    implementation(libs.androidx.ui.graphics)
-    implementation(libs.androidx.ui.tooling.preview)
-    implementation(libs.androidx.compose.material)
-    implementation(libs.androidx.compose.foundation)
-    implementation(libs.androidx.wear.tooling.preview)
     implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.compose.foundation)
+    implementation(libs.androidx.compose.material)
     implementation(libs.androidx.core.splashscreen)
     implementation(libs.androidx.tiles)
     implementation(libs.androidx.tiles.material)
     implementation(libs.androidx.tiles.tooling.preview)
+    implementation(libs.androidx.ui.graphics)
+    implementation(libs.androidx.ui.tooling.preview)
+    implementation(libs.androidx.watchface.complications.data.source.ktx)
+    implementation(libs.androidx.wear.tooling.preview)
+    implementation(libs.compose.ui)
     implementation(libs.horologist.compose.tools)
     implementation(libs.horologist.tiles)
-    implementation(libs.androidx.watchface.complications.data.source.ktx)
+    implementation(libs.play.services.wearable)
+
+    debugImplementation(libs.androidx.tiles.tooling)
+    debugImplementation(libs.compose.ui.test.manifest)
+    debugImplementation(libs.compose.ui.tooling)
+
     androidTestImplementation(platform(libs.compose.bom))
     androidTestImplementation(libs.compose.ui.test.junit)
-    debugImplementation(libs.compose.ui.tooling)
-    debugImplementation(libs.compose.ui.test.manifest)
-    debugImplementation(libs.androidx.tiles.tooling)
 }
